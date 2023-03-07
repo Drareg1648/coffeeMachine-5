@@ -1,16 +1,15 @@
 package machine;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CoffeeMachine {
+public interface CoffeeMachine {
 
-    static int currentAmountOfWater = 400;
-    static int currentAmountOfMilk = 540;
-    static int currentAmountOfCoffeeBeans = 120;
-    static int currentAmountOfDisposableCups = 9;
-    static int currentAmountOfMoney = 550;
+    ArrayList<CoffeeBrew> modes;
 
-    static int waterUseEspresso = 250;
+    /*
+    static int
+
     static int coffeeBeansUseEspresso = 16;
     static int costEspresso = 4;
 
@@ -25,6 +24,74 @@ public class CoffeeMachine {
     static int costCappuccino = 6;
 
     static int cupUseCoffee = 1;
+    */
+
+    public CoffeeMachine() {
+        modes = new ArrayList<>();
+
+        CoffeeBrew current;
+        current = new CoffeeBrew();
+        current.setCoffee("current");
+        current.setCurrent(new CoffeeType());
+
+        modes.add(current);
+
+        CoffeeBrew latte;
+        CoffeeType coffeeLatte;
+        coffeeLatte = new CoffeeType();
+        coffeeLatte.setWater(350);
+        coffeeLatte.setMilk(75);
+        coffeeLatte.setBeans(20);
+        coffeeLatte.setCups(1);
+        coffeeLatte.setMoney(7);
+
+        latte = new CoffeeBrew("latte", coffeeLatte);
+        latte.setCurrent(new CoffeeType());
+
+        modes.add(latte);
+
+
+
+
+        CoffeeBrew espresso;
+        CoffeeType coffeeEspresso;
+        coffeeEspresso = new CoffeeType();
+        coffeeEspresso.setWater(350);
+        coffeeEspresso.setMilk(75);
+        coffeeEspresso.setBeans(20);
+        coffeeEspresso.setCups(1);
+        coffeeEspresso.setMoney(7);
+
+        espresso = new CoffeeBrew("espresso", coffeeEspresso);
+        espresso.setCurrent(new CoffeeType());
+
+        modes.add(espresso);
+
+
+        CoffeeBrew cappuccino;
+        CoffeeType coffeeCappuccino;
+        coffeeCappuccino = new CoffeeType();
+        coffeeCappuccino.setWater(350);
+        coffeeCappuccino.setMilk(75);
+        coffeeCappuccino.setBeans(20);
+        coffeeCappuccino.setCups(1);
+        coffeeCappuccino.setMoney(7);
+
+        cappuccino = new CoffeeBrew("cappuccino", coffeeCappuccino);
+        cappuccino.setCurrent(new CoffeeType());
+
+        modes.add(cappuccino);
+
+    
+}
+        /*
+
+         Doe hier hetzelfde voor Espresso, Latte, en Cappucino
+
+         implementeer dan een CoffeeBrew.buy( CoffeeType substract ).
+
+        */
+    }
 
     private static void showRemaining() {
         System.out.println("The coffee machine has: ");
